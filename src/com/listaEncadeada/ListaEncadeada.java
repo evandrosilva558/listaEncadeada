@@ -1,9 +1,10 @@
 package com.listaEncadeada;
 
-public class ListaEncadeada {
+public class ListaEncadeada<T> {
 	
 	No<T> referenciaEntrada;
 	
+	int ultimoIndice = size() - 1;
 	
 	// construtor da ListaEncadeada setado nulo
 	public ListaEncadeada() {
@@ -43,9 +44,8 @@ public class ListaEncadeada {
 		
 		No<T> noRetorno = null;
 		
-		int ultimoIndice = size() - 1;
 		
-		for(int i = 0; i < this.size()-1; i++) {
+		for(int i = 0; i <= index; i++) {
 			noRetorno = noAuxiliar;
 			noAuxiliar = noAuxiliar.getProximoNo();
 			
@@ -55,12 +55,12 @@ public class ListaEncadeada {
 	// metodo para remover um no em determinado indice
 	public T remove(int index) {
 		
+		
 		No<T> noPivor = this.getNo(index);
 		
 		if(index == 0) {
 			referenciaEntrada = noPivor.getProximoNo();
-		} return noPivor.getConteudo();
-	
+		} 
 		No<T> noAnterior = getNo(index - 1);
 		noAnterior.setProximoNo(noPivor.getProximoNo());
 		return noPivor.getConteudo();
@@ -79,21 +79,20 @@ public class ListaEncadeada {
 				if(referenciaAux.getProximoNo() != null) {
 					referenciaAux = referenciaAux.getProximoNo();
 				}else {
-					return break;
+					break;
 				}
 			}else {
-				return break;
+				break;
 			}
-		}
-	} return tamanhoLista;
+		} return tamanhoLista;
+	} 
 	
 	// metodo valida de o indice existe criando uma excessao de nullpointerexception tratando o erro
 	private void validaIndice(int index) {
 				
 		if(index >= size()) {
-			throw new IndexOutOfBoundsException("Não existe conteudo no indice" + index + "desta lista.\n Essa lista vai até o indice" + ultimoIndice);
+			throw new IndexOutOfBoundsException("Não existe conteudo no indice" + index + "desta lista.\n Essa lista vai até o indice" + ultimoIndice + ".");
 		}
-				
 	}
 			
 	// metodo isEmpt para verificar se a lista esta vazia
@@ -108,9 +107,9 @@ public class ListaEncadeada {
 		
 		No<T> noAuxiliar = referenciaEntrada;
 		
-		if(int i = 0; i < this.size(); i++) {
+		for(int j = 0; j < this.size(); j++) {
 			
-			strRetorno += "No [conteudo= " + noAuxiliar.getConteudo() + "]==>";
+			strRetorno += "No [ conteudo= " + noAuxiliar.getConteudo() + " ] ==> ";
 			noAuxiliar = noAuxiliar.getProximoNo();
 		}
 		strRetorno += "null";

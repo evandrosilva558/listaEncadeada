@@ -5,7 +5,7 @@ public class No<T> {
 	
 	private T conteudo;
 	
-	private No proximoNo;
+	private No<T> proximoNo;
 	
 	
 	public No() { 
@@ -21,7 +21,7 @@ public class No<T> {
 
 
 
-	public No(T conteudo, No proximoNo) {
+	public No(T conteudo, No<T> proximoNo) {
 		this.conteudo = conteudo;
 		this.proximoNo = proximoNo;
 	}
@@ -40,13 +40,13 @@ public class No<T> {
 
 
 
-	public No getProximoNo() {
+	public No<T> getProximoNo() {
 		return proximoNo;
 	}
 
 
 
-	public void setProximoNo(No proximoNo) {
+	public void setProximoNo(No<T> proximoNo) {
 		this.proximoNo = proximoNo;
 	}
 
