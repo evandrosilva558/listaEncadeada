@@ -4,7 +4,6 @@ public class ListaEncadeada<T> {
 	
 	No<T> referenciaEntrada;
 	
-	int ultimoIndice = size() - 1;
 	
 	// construtor da ListaEncadeada setado nulo
 	public ListaEncadeada() {
@@ -55,7 +54,6 @@ public class ListaEncadeada<T> {
 	// metodo para remover um no em determinado indice
 	public T remove(int index) {
 		
-		
 		No<T> noPivor = this.getNo(index);
 		
 		if(index == 0) {
@@ -86,12 +84,12 @@ public class ListaEncadeada<T> {
 			}
 		} return tamanhoLista;
 	} 
-	
+	 
 	// metodo valida de o indice existe criando uma excessao de nullpointerexception tratando o erro
 	private void validaIndice(int index) {
 				
 		if(index >= size()) {
-			throw new IndexOutOfBoundsException("Não existe conteudo no indice" + index + "desta lista.\n Essa lista vai até o indice" + ultimoIndice + ".");
+			throw new IndexOutOfBoundsException("Não existe conteudo no indice " + index + " desta lista.\n Essa lista vai até o indice " + (size() -1) + ".");
 		}
 	}
 			
